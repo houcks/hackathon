@@ -16,10 +16,11 @@ function printWeather(weather){
     let currentLow = document.getElementById('low');
     let currentWeather = document.getElementById('current');
     let currentCity = document.getElementById('city');
-    
+    console.log(weather);
     currentCity.innerText = weather.name;
-    currentTemp.innerText = `Current Temp: ${weather.main.temp}`;
-    currentHigh.innerText = `Today's High: ${weather.main.temp_max}`;
-    currentLow.innerText = `Today's Low: ${weather.main.temp_min}`;
-    currentWeather.innerText = `Weather Condition: ${weather.weather[0].main}`;
+    currentTemp.innerText = `Current Temp: ${Math.round(weather.main.temp)}${String.fromCharCode(176)}C`;
+    currentHigh.innerText = `Today's High: ${Math.round(weather.main.temp_max)}${String.fromCharCode(176)}C`;
+    currentLow.innerText = `Today's Low: ${Math.round(weather.main.temp_min)}${String.fromCharCode(176)}C`;
+    console.log()
+    currentWeather.src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`;
 }
